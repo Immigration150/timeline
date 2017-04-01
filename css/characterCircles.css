@@ -1,0 +1,43 @@
+.circleDiv {
+    border-radius: 50%;
+    width:100px;
+    height:100px;
+    border: 10px solid #f7faff;
+    position: absolute;
+    text-align:center;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index:1;
+    -webkit-box-shadow: 0px 1px 10px 0px rgba(0,0,0,0.4);
+    -moz-box-shadow: 0px 1px 10px 0px rgba(0,0,0,0.4);
+    box-shadow: 0px 1px 10px 0px rgba(0,0,0,0.4);
+    transition: 0.5s;
+    cursor:pointer;
+
+}
+
+.circleDiv:hover
+{
+  -webkit-box-shadow: 0px 10px 20px 0px rgba(0,0,0,0.2);
+  -moz-box-shadow: 0px 10px 20px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 10px 20px 0px rgba(0,0,0,0.2);
+  transform: scale(1.1, 1.1);
+  border: 10px solid white;
+}
+
+#shezan
+{
+  background-image: url("/assets/shezan_small-01.png");
+  background-size: 150px 150px;
+}
+
+#irene
+{
+  background-image: url("/assets/irene_small-01.png");
+  background-size: 125px 125px;
+}
+
+#joyce
+{
+  background-image: url("/assets/joyce_small-01.png");
+}

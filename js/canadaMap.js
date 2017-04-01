@@ -55,9 +55,9 @@ window.onload = function ()
     var albertaGroup = Snap(document.getElementById("alberta"));
     var britishColumbiaGroup = Snap(document.getElementById("britishColumbia"));
     var territoriesGroup = Snap (document.getElementById("territories"));
-    
-    loadModalJS();
+
     nodeOne_calledOnMap();
+    loadCircularDivPositioning();
 }
 
 
@@ -74,41 +74,41 @@ function nodeOne_calledOnMap()
     albertaGroup = Snap(document.getElementById("alberta"));
     britishColumbiaGroup = Snap(document.getElementById("britishColumbia"));
     territoriesGroup = Snap (document.getElementById("territories"));
-    
+
     //animations
     newfoundlandGroup.animate({fill:mapRed}, 350);
     newfoundlandGroup.animate({"fill-opacity":nfldOpacity1957}, 350);
-    
+
     novaScotiaGroup.animate({fill:mapRed}, 350);
     novaScotiaGroup.animate({"fill-opacity":nsOpacity1957}, 350);
-    
+
     PEIGroup.animate({fill:mapRed}, 350);
     PEIGroup.animate({"fill-opacity":peiOpacity1957}, 350);
-    
+
     newBrunswickGroup.animate({fill:mapRed}, 350);
     newBrunswickGroup.animate({"fill-opacity":nbOpacity1957}, 350);
-    
+
     quebecGroup.animate({fill:mapRed}, 350);
     quebecGroup.animate({"fill-opacity":qcOpacity1957}, 350);
-    
+
     ontarioGroup.animate({fill:mapRed}, 350);
     ontarioGroup.animate({"fill-opacity":onOpacity1957}, 350);
-    
+
     manitobaGroup.animate({fill:mapRed}, 350);
     manitobaGroup.animate({"fill-opacity":manOpacity1957}, 350);
-    
+
     saskatchewanGroup.animate({fill:mapRed}, 350);
     saskatchewanGroup.animate({"fill-opacity":saskOpacity1957}, 350);
-    
+
     albertaGroup.animate({fill:mapRed}, 350);
     albertaGroup.animate({"fill-opacity":albOpacity1957}, 350);
-    
+
     britishColumbiaGroup.animate({fill:mapRed}, 350);
     britishColumbiaGroup.animate({"fill-opacity":bcOpacity1957}, 350);
-    
+
     territoriesGroup.animate({fill:mapRed}, 350);
     territoriesGroup.animate({"fill-opacity":territoriesOpacity1957}, 350);
-    
+
 }
 
 function nodeTwo_calledOnMap()
@@ -125,7 +125,7 @@ function nodeTwo_calledOnMap()
     albertaGroup = Snap(document.getElementById("alberta"));
     britishColumbiaGroup = Snap(document.getElementById("britishColumbia"));
     territoriesGroup = Snap (document.getElementById("territories"));
-    
+
 //animations
     newfoundlandGroup.animate({"fill-opacity":nfldOpacity1973}, 350);
     novaScotiaGroup.animate({"fill-opacity":nsOpacity1973}, 350);
@@ -154,7 +154,7 @@ function nodeThree_calledOnMap()
     albertaGroup = Snap(document.getElementById("alberta"));
     britishColumbiaGroup = Snap(document.getElementById("britishColumbia"));
     territoriesGroup = Snap (document.getElementById("territories"));
-    
+
     //animations
     newfoundlandGroup.animate({"fill-opacity":nfldOpacity2010}, 350);
     novaScotiaGroup.animate({"fill-opacity":nsOpacity2010}, 350);

@@ -19,16 +19,13 @@ var positionRef,
 var $nodeButtonRef = $("#nodeButton1");
 var svg_timeline_bar = $('Timeline_Line.svg');
 
-//vars for SVG access
-var modal1 = Snap(document.getElementById("modalPath_1"));
-//click and hover event handlers
+
 
 //calls applySnap which tweens the button
 $nodeButtonRef.on("mouseup", applySnap);
 //$(window).on("mouseup", applySnap);     //can use this but needs polish - would trigger event on any mouseup
 
 
-$('#modalPath_1').on('click', modal1Open);
 
 
 for (i = 0; i < gridRows * gridColumns; i++) {
@@ -97,6 +94,8 @@ function applySnap() {
 
 $(window).on("resize", function()
 {
+	//calls function to update circular div positions
+	updateCircularDivPosition();
     //resizing grid and tweens
 	$map = $("#map").width();
     gridWidth = $map/gridColumns;
