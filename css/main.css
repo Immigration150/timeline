@@ -2,52 +2,6 @@ body {
   background-color:white;
   font-family: Signika Negative, Asap, sans-serif;
 }
-
-/*--------character circles--------*/
-.characterModalCircle
-{
-    fill:#FFF;
-    filter: drop-shadow( -5px -5px 5px #000 );
-
-    box-shadow: 10px 10px 5px #888888;
-    transition: 0.5s;
-}
-.characterModalCircle:hover
-{
-
-}
-.charCircle_grp
-{
-  cursor: pointer;
-}
-.charCircle_grp:hover
-{
-
-}
-#characterModalgrp_1:hover > #modalPath_1
-{
-  fill: #ee4036;
-}
-#characterModalgrp_2:hover > #modalPath_2
-{
-  fill: #ee4036;
-}
-#characterModalgrp_3:hover > #modalPath_3
-{
-    fill: #ee4036;
-}
-#characterModalgrp_1:active > #modalPath_1
-{
-  fill: #ad0f06;
-}
-#characterModalgrp_2:active > #modalPath_2
-{
-  fill: #ad0f06;
-}
-#characterModalgrp_3:active > #modalPath_3
-{
-    fill: #ad0f06;
-}
 /*------main-------*/
 #canadaMap
 {
