@@ -27,17 +27,17 @@
 
 #shezan
 {
-  background-image: url("assets/shezan_small-01.png");
+  background-image: url("../assets/shezan_small-01.png");
   background-size: 150px 150px;
 }
 
 #irene
 {
-  background-image: url("assets/irene_small-01.png");
+  background-image: url("../assets/irene_small-01.png");
   background-size: 125px 125px;
 }
 
 #joyce
 {
-  background-image: url("assets/joyce_small-01.png");
+  background-image: url("../assets/joyce_small-01.png");
 }
