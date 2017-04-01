@@ -1,0 +1,284 @@
+
+
+body{
+	margin: 0px;
+	margin-right: 0px;
+	padding: 0px;
+	height:100%;
+	width: 100%;
+	text-align:center;
+	}
+
+#pieChart{
+	padding: 0px;
+	width: 100%;
+	/*display: inline-block;
+	position:fixed;*/
+	margin-right: 0;
+
+	text-align:right;
+	z-index:100;
+	position:relative;
+
+	/*float: right;	*/
+}
+
+#slider{
+	padding: 0;
+	margin: 0;
+}
+
+.slider img{
+	width: 100%;
+}
+
+#pie{
+	width: 100%;
+    height: 30%;
+	top: 0px;
+	text-align:right;
+	z-index:100;
+	position:relative;
+
+}
+
+#map{
+	/*width: 70%;*/
+	/*width: 80%;*/
+	/*max-width: 1000px;*/
+	margin-top: 5px;
+	/*text-align:center;*/
+	text-align:center;
+	/*display:inline-block;*/
+	position:fixed;
+	left: 250px;
+	right: 0;
+	width: calc(100% - 250px);
+	height: 100%;
+
+	top: 0;
+	}
+
+#map img{
+	width: 100%;
+	height: 100%;
+	max-width: 660px;
+	display:inline-block;
+	}
+
+	#sideBar{
+		background-color: #242f3b;
+		left: 0;
+		top: 0;
+		bottom: 0;
+		width: 250px;
+		height: 100%;
+		position:fixed;
+		display:inline-block;
+		margin: 0;
+	}
+
+#year{
+	background-color: #17252d;
+	color: white;
+	top: 0;
+	left: 0;
+	position:fixed;
+	z-index:100;
+
+}
+
+#description{
+	color: white;
+	font-size:14px;
+	font-weight:100;
+	top: 110px;
+	padding: 4%;
+	position:relative;
+}
+
+#logo{
+	background-color: #17252d;
+	height: 50px;
+	width: 250px;
+	bottom: 0;
+	left: 0;
+	position:fixed;
+	color: white;
+	line-height: 50px;
+}
+
+
+@media only screen and (min-width: 901px) {
+	#year{
+		width: 250px;
+		height: 100px;
+		line-height:100px;
+		font-size:24px;
+	}
+
+	#container{
+		position:fixed;
+		bottom: 10px;
+	}
+
+	#map{
+		/*max-width: 1000px;*/
+	}
+
+	#canadaMap{
+		max-width: 700px;
+	}
+
+	#mobileTopBar{
+	visibility:hidden;
+	}
+
+	#mobileBottomBar{
+		visibility:hidden;
+	}
+
+	#sideBar{
+		visibility: visible;
+	}
+
+	#pieChartz{
+		width: 40%;
+		height: 30%;
+		right: 0%;
+		top: 0px;
+	}
+}
+
+@media (max-width: 900px) and (min-width: 471px) {
+
+	#sideBar{
+		width: 150px;
+	}
+
+	#map{
+		left: 150px;
+		width: calc(100% - 150px);
+	}
+	#pieChartz{
+		width: 40%;
+		height: 30%;
+		right: 0%;
+		top: 0px;
+	}
+	#container{
+		position:fixed;
+		bottom: 10px;
+	}
+
+	#year{
+		width: 150px;
+		height: 80px;
+		line-height:80px;
+		font-size:20px;
+	}
+
+	#logo{
+		width: 150px;
+	}
+}
+
+
+@media (max-width: 900px) and (min-width: 471px) {
+	#map{
+		max-width: 660px;
+	}
+	#sideBar{
+		visibility: visible;
+	}
+	#pieChartz{
+		width: 40%;
+		height: 30%;
+		right: 0%;
+		top: 0px;
+	}
+}
+
+
+/* mobile phone*/
+@media (max-width: 470px) {
+
+	#mobileTopBar{
+		visibility:visible;
+		width: 100%;
+		height: 80px;
+		padding: 0px;
+		margin: 0px;
+		background-color:#242f3b;
+
+	}
+
+	#mobileBottomBar{
+		visibility:visible;
+		width: 100%;
+		height: 80px;
+		padding: 0px;
+		background-color:#242f3b;
+		position:fixed;
+		bottom: 0;
+		left:0;
+
+	}
+
+	.grow{
+		height: calc(100% - 80px);
+		width: 100%;
+		display:inline-block;
+		background-color:#242f3b;
+		top: 80px;
+	}
+
+	.normal{
+
+		height: 0px;
+	}
+
+	#mobileBottomBar img{
+		width: 80%;
+	}
+
+	#map{
+		width: 100%;
+		left: 0;
+		vertical-align:middle;
+	}
+
+	#map img{
+		width: 100%;
+		height: 100%;
+	}
+
+	#sideBar{
+		visibility: hidden;
+	}
+
+	#pieChartz{
+		width:50%;
+		right: 0px;
+		top: 80px;
+	}
+
+	#container{
+		position:fixed;
+		bottom: 90px;
+	}
+
+	#year{
+		width: 100%;
+		height: 80px;
+		line-height:80px;
+		font-size:20px;
+	}
+
+	#description{
+		visibility:hidden;
+	}
+	#logo{
+		visibility:hidden;
+	}
+}

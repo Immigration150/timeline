@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="220" height="220" viewBox="0 0 220 220">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #39b54a;
+      }
+    </style>
+  </defs>
+  <title>modalT</title>
+  <g id="Layer_2" data-name="Layer 2">
+    <g id="Layer_1-2" data-name="Layer 1">
+      <path class="cls-1" d="M220,110A110,110,0,0,0,110,0C80.52,0,43.75,1.6,24,20.48,3,40.51,0,78.73,0,110a110,110,0,0,0,220,0Z"/>
+    </g>
+  </g>
+</svg>

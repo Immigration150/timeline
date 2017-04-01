@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="242" height="242" viewBox="0 0 242 242">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #39b54a;
+      }
+    </style>
+  </defs>
+  <title>openModal</title>
+  <g id="Layer_2" data-name="Layer 2">
+    <g id="Layer_1-2" data-name="Layer 1">
+      <path class="cls-1" d="M242,0S151.25,10,121,10,0,0,0,0,10,90.75,10,121,0,242,0,242s90.75-10,121-10,121,10,121,10-10-90.75-10-121S242,0,242,0Z"/>
+    </g>
+  </g>
+</svg>
