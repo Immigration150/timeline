@@ -40,9 +40,11 @@
     -webkit-box-shadow: 0px 1px 10px 0px rgba(0,0,0,0.4);
     -moz-box-shadow: 0px 1px 10px 0px rgba(0,0,0,0.4);
     box-shadow: 0px 1px 10px 0px rgba(0,0,0,0.4);
-    transition: 0.4s;
+    transition: all 0.4s ease;
     cursor:pointer;
 
+    visibility: visible;
+    /*display:inline;*/
 }
 
 .circleDiv:hover
@@ -52,6 +54,14 @@
   box-shadow: 0px 10px 20px 0px rgba(0,0,0,0.2);
   transform: scale(1.07, 1.07);
   border-color: white;
+}
+
+.circleDiv.close
+{
+  transform: scale(0.1, 0.1);
+
+  transition-delay: display 2s;
+  visibility: hidden;
 }
 
 #shezan

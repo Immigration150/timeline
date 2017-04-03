@@ -70,14 +70,17 @@ function updateCircularDivPosition()
 function hideDivs(divToHide1, divToHide2)
 {
   if (divToHide1 != "null") {
-    divToHide1.style.display="none";
+    //divToHide1.style.display="none";
+    divToHide1.classList.add('close');
   }
   if (divToHide2 != "null") {
-    divToHide2.style.display="none";
+    //divToHide2.style.display="none";
+    divToHide2.classList.add('close');
   }
 }
 
 function showDivs(divToShow)
 {
-  divToShow.style.display="inline";
+  //divToShow.style.display="inline";
+  divToShow.classList.remove('close');
 }
