@@ -14,6 +14,8 @@
 	-moz-transform: translateX(-50%) translateY(-50%);
 	-ms-transform: translateX(-50%) translateY(-50%);
 	transform: translateX(-50%) translateY(-50%);
+	
+	font-size:16px;
 }
 
 .md-show {
@@ -23,7 +25,8 @@
 /* Content styles */
 .md-content {
 	color: #fff;
-	background: #e74c3c;
+	/*background: #e74c3c;*/
+	background: white;
 	position: relative;
 	border-radius: 3px;
 	margin: 0 auto;
@@ -40,7 +43,7 @@
 {
     margin: 0;
 	padding: 0;
-	text-align: right;
+	text-align: center;
 	font-size: 1em;
 	font-weight: 200;
     float:right;
@@ -55,6 +58,93 @@
     width: 100%;
 }
 
+
+
+#modalPicture{
+	width: 5%;
+	top:0;
+	left: 0;
+}
+
+#modalPicture img{
+	width: 100%;
+}
+
+#fullWidthText{
+	width: 90%;
+	text-align:left;
+	font-size: 14px;
+	z-index: 100;
+	display:inline-block;
+}
+
+#fullWidthText p{
+	color: black;
+	font-size:16px;
+}
+
+#audioWrap{
+	text-align: center;
+	display:inline-block;
+	width: 100%;
+	vertical-align:middle;
+}
+
+#audioClip{
+	border-radius: 10px;
+	background-color: #333;
+	width: 20%;
+	color: white;
+	padding: 1%;
+	display:inline-block;
+	margin: 1%;
+	padding-left: 5%;
+	padding-right:5%;
+	padding-bottom:3%;
+}
+
+#audioClip p{
+	color: white;
+}
+
+audio{
+	width: 100%;
+}
+
+#picWrap{
+	text-align:center;
+	display:inline-block;
+	width: 100%;
+}
+
+#eightyPic{
+	width: 50%;
+	display:inline-block;
+	margin: 2.5%;
+	background-color:#e8e9ea;
+}
+
+#eightyPic img{
+	width:100%;
+
+}
+
+#eightyPic p{
+	font-size: 10px;
+	color: black;
+	padding: 1%;
+}
+
+#twentyPic{
+	width: 25%;
+	display:inline-block;
+	padding: 2.5%;
+}
+
+#twentyPic img{
+	width: 100%;
+}
+
 .md-content h3 {
 	margin: 0;
 	padding: 0.4em;
@@ -63,6 +153,7 @@
 	font-weight: 300;
 	opacity: 0.8;
 	background: rgba(0,0,0,0.1);
+	color: black;
 	border-radius: 3px 3px 0 0;
 }
 
