@@ -1,9 +1,16 @@
-
 function loadCircularDivPositioning()
 {
   var shezanRef = document.getElementById("shezan");
   var ireneRef = document.getElementById("irene");
   var joyceRef = document.getElementById("joyce");
+
+  var joyce_onClick = document.getElementById("joyce").addEventListener("click", function(){hideDivs(document.getElementById("joyce"), "null")});
+  var shezan_onClick = document.getElementById("shezan").addEventListener("click", function(){hideDivs(document.getElementById("shezan"), "null")});
+  var irene_onClick = document.getElementById("irene").addEventListener("click", function(){hideDivs(document.getElementById("irene"), "null")});
+
+  var joyce_onClose = document.getElementById("joyceClose").addEventListener("click", function(){showDivs(document.getElementById("joyce"))});
+  var shezan_onClose = document.getElementById("shezanClose").addEventListener("click", function(){showDivs(document.getElementById("shezan"))});
+  var irene_onClose = document.getElementById("ireneClose").addEventListener("click", function(){showDivs(document.getElementById("irene"))});
 
   var circleStyle = window.getComputedStyle(shezanRef),
       widthC = (circleStyle.getPropertyValue('width')).replace('px',''),
@@ -62,8 +69,12 @@ function updateCircularDivPosition()
 
 function hideDivs(divToHide1, divToHide2)
 {
-  divToHide1.style.display="none";
-  divToHide2.style.display="none";
+  if (divToHide1 != "null") {
+    divToHide1.style.display="none";
+  }
+  if (divToHide2 != "null") {
+    divToHide2.style.display="none";
+  }
 }
 
 function showDivs(divToShow)
