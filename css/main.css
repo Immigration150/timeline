@@ -3,9 +3,9 @@ body {
   font-family: Signika Negative, Asap, sans-serif;
 }
 /*------main-------*/
-#canadaMap
+#map
 {
-    left:500px;
+  z-index:0.9;
 }
 
 .cls-1

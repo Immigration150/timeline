@@ -25,9 +25,6 @@ var svg_timeline_bar = $('Timeline_Line.svg');
 $nodeButtonRef.on("mouseup", applySnap);
 //$(window).on("mouseup", applySnap);     //can use this but needs polish - would trigger event on any mouseup
 
-
-
-
 for (i = 0; i < gridRows * gridColumns; i++) {
 	y = Math.floor(i / gridColumns) * gridHeight;
 	x = (i * gridWidth) % (gridColumns * gridWidth);
@@ -335,21 +332,36 @@ var pie = new d3pie("pie", {
 //animation functions
 function nodeOne()
 {
+		var shezanRef = document.getElementById("shezan");
+		var ireneRef = document.getElementById("irene");
+		var joyceRef = document.getElementById("joyce");
     nodeOne_calledOnMap();
+		hideDivs(shezanRef, ireneRef);
+		showDivs(joyceRef);
     pie.updateProp("data.content", data1957);
 
 }
 function nodeTwo()
 {
+		var shezanRef = document.getElementById("shezan");
+		var ireneRef = document.getElementById("irene");
+		var joyceRef = document.getElementById("joyce");
     nodeTwo_calledOnMap();
+		hideDivs(ireneRef, joyceRef);
+		showDivs(shezanRef);
     pie.updateProp("data.content", data1973);
 
 }
 
 function nodeThree()
 {
+		var shezanRef = document.getElementById("shezan");
+		var ireneRef = document.getElementById("irene");
+		var joyceRef = document.getElementById("joyce");
     nodeThree_calledOnMap();
-        pie.updateProp("data.content", data2010);
+		hideDivs(shezanRef, joyceRef);
+		showDivs(ireneRef);
+    pie.updateProp("data.content", data2010);
 
 }
 update();

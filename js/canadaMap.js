@@ -56,7 +56,7 @@ window.onload = function ()
     var britishColumbiaGroup = Snap(document.getElementById("britishColumbia"));
     var territoriesGroup = Snap (document.getElementById("territories"));
 
-    nodeOne_calledOnMap();
+    nodeOne();
     loadCircularDivPositioning();
 }
 

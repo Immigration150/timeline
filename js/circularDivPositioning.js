@@ -26,7 +26,7 @@ function loadCircularDivPositioning()
   irene.style.top = (bcCenterY-(heightC/2)) +'px';
 
   joyce.style.left = (ontarioCenterX-(widthC/2))+'px';
-  joyce.style.top = (200)+'px';
+  joyce.style.top = (ontarioCenterY-(heightC/2))+'px';
 
 }
 
@@ -57,5 +57,16 @@ function updateCircularDivPosition()
   irene.style.top = (bcCenterY-(heightC/2)) +'px';
 
   joyce.style.left = (ontarioCenterX-(widthC/2))+'px';
-  joyce.style.top = (200)+'px';
+  joyce.style.top = (ontarioCenterY-(heightC/2))+'px';
+}
+
+function hideDivs(divToHide1, divToHide2)
+{
+  divToHide1.style.display="none";
+  divToHide2.style.display="none";
+}
+
+function showDivs(divToShow)
+{
+  divToShow.style.display="inline";
 }

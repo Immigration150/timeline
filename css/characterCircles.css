@@ -1,3 +1,20 @@
+@media screen and (max-width: 1200px)
+{
+    body .circleDiv{width: 75px; height:75px; border: 7.5px solid #f7faff;}
+    body #joyce{background-size:110px 110px;}
+}
+@media screen and (max-width: 900px)
+{
+    body .circleDiv{width: 60px; height:60px; border: 6px solid #f7faff;}
+    body #joyce{background-size:80px 80px;}
+}
+
+@media screen and (max-width: 600px)
+{
+  body .circleDiv{width: 50px; height:50px; border: 5px solid #f7faff;}
+  body #joyce{background-size:70px 70px;}
+}
+
 .circleDiv {
     border-radius: 50%;
     width:100px;
@@ -11,7 +28,7 @@
     -webkit-box-shadow: 0px 1px 10px 0px rgba(0,0,0,0.4);
     -moz-box-shadow: 0px 1px 10px 0px rgba(0,0,0,0.4);
     box-shadow: 0px 1px 10px 0px rgba(0,0,0,0.4);
-    transition: 0.5s;
+    transition: 0.4s;
     cursor:pointer;
 
 }
@@ -21,8 +38,8 @@
   -webkit-box-shadow: 0px 10px 20px 0px rgba(0,0,0,0.2);
   -moz-box-shadow: 0px 10px 20px 0px rgba(0,0,0,0.2);
   box-shadow: 0px 10px 20px 0px rgba(0,0,0,0.2);
-  transform: scale(1.1, 1.1);
-  border: 10px solid white;
+  transform: scale(1.07, 1.07);
+  border-color: white;
 }
 
 #shezan
@@ -40,4 +57,5 @@
 #joyce
 {
   background-image: url("../assets/joyce_small-01.png");
+  background-size: 125px 125px;
 }
