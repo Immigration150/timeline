@@ -5,7 +5,7 @@ var $pieWidth = $map*0.5;
 var $snap = $("#snap"),
 	$container = $("#container"),
 	gridWidth = $map/3,
-	gridHeight = 70,
+	gridHeight = 75,
 	gridRows = 1,
 	gridColumns = 3,
 	i, x, y;
