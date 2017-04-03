@@ -2,6 +2,8 @@
 var $map = $("#map").width();
 var $pieWidth = $map*0.5;
 
+var isNodeBtnClicked = false;
+
 var $snap = $("#snap"),
 	$container = $("#container"),
 	gridWidth = $map/3,
@@ -22,8 +24,13 @@ var svg_timeline_bar = $('Timeline_Line.svg');
 
 
 //calls applySnap which tweens the button
-$nodeButtonRef.on("mouseup", applySnap);
-//$(window).on("mouseup", applySnap);     //can use this but needs polish - would trigger event on any mouseup
+$nodeButtonRef.on("mousedown", function(){isNodeBtnClicked = true;});
+
+$(window).on("mouseup", function(){if(isNodeBtnClicked){applySnap(); isNodeBtnClicked=false;}});
+
+//$nodeButtonRef.on("mouseup", function(){isNodeBtnClicked = false;});
+
+     //can use this but needs polish - would trigger event on any mouseup
 
 for (i = 0; i < gridRows * gridColumns; i++) {
 	y = Math.floor(i / gridColumns) * gridHeight;
@@ -97,13 +104,14 @@ $(window).on("resize", function()
 	$map = $("#map").width();
     gridWidth = $map/gridColumns;
     TweenLite.set($container, {height: gridRows * gridHeight + 1, width: gridColumns * gridWidth });
-    TweenLite.set(".nodeButton", {width:gridWidth, height:gridHeight, lineHeight:gridHeight + "px"});
+
 	/*TweenLit.to(".nodeButton", 1, {css: {left:Math.round(element._gsTransform.x / gridWidth) * gridWidth}});
 	TweenLite.to(".nodeButton", 1, {css: {left:(gridWidth*2)}});
 	TweenLite.to(element, 1, {x:Math.round(element._gsTransform.x / gridWidth) * gridWidth});*/
 	TweenLite.set(".slider", {width:gridWidth, height:gridHeight, lineHeight:gridHeight + "px"});
 	TweenLite.to("#TimePeriod_1", 1, {css: {left:gridWidth-2}});
 	TweenLite.to("#TimePeriod_0", 1, {css: {left:(gridWidth*2 - 2)}});
+	TweenLite.set(".nodeButton", {width:gridWidth, height:gridHeight, lineHeight:gridHeight + "px"});
 	applySnap();
 	/*TweenLite.to("#nodeButton1", 0.5, {x:(gridWidth - Math.round(element._gsTransform.x / gridWidth))});*/
 	TweenLite.to("#pie", 1, {css: {right:("0"), float:("right")}});
