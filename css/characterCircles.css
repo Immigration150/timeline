@@ -2,17 +2,29 @@
 {
     body .circleDiv{width: 75px; height:75px; border: 7.5px solid #f7faff;}
     body #joyce{background-size:110px 110px;}
+    body #shezan{background-size:110px 110px;}
+    body #irene{background-size:110px 110px;}
+
+
+
 }
 @media screen and (max-width: 900px)
 {
     body .circleDiv{width: 60px; height:60px; border: 6px solid #f7faff;}
     body #joyce{background-size:80px 80px;}
+    body #shezan{background-size:85px 85px;}
+    body #irene{background-size:90px 90px;}
+
 }
 
 @media screen and (max-width: 600px)
 {
   body .circleDiv{width: 50px; height:50px; border: 5px solid #f7faff;}
   body #joyce{background-size:70px 70px;}
+  body #shezan{background-size:75px 75px;}
+  body #irene{background-size:70px 70px;}
+
+
 }
 
 .circleDiv {
@@ -45,7 +57,7 @@
 #shezan
 {
   background-image: url("../assets/shezan_small-01.png");
-  background-size: 150px 150px;
+  background-size: 140px 140px;
 }
 
 #irene
