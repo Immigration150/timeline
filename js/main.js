@@ -38,6 +38,7 @@ var $map = $("#map").width();
 var description1921 = "This is 1921 and this is what happened."
 var description1973 = "This is 1973 and this is what happened."
 var description2010 = "This is 2010 and this is what happened."
+var newFoundTrue = true;
 
 var $pieWidth = $map*0.5;
 var isNodeBtnClicked = false;
@@ -668,50 +669,99 @@ var ProvinceData2010 = [
 var allStates = $("svg.CanadaMap> *");
 
 allStates.on("mouseenter", function() {
-    allStates.removeClass("on");
+   allStates.removeClass("on");
     $(this).addClass("on");
-    //var thisOp = $(this).attr("fill-opacity");
+    
+    var ProvinceID = $(this).attr("id");
+    if (ProvinceID == "newfoundland" && newFoundTrue == true)
+    {
     d3.select(this)
-    .style('stroke-width', 0)
-    .attr('stroke', 'white')
+    .attr('stroke', 'none');
+    } 
+    else{
+    d3.select(this)
     .transition()
     .duration("700")
     .attr('stroke', 'red')
-    .style('stroke-width', 6)
+    .style('stroke-width', 3)
     .style("stroke-opacity",0.5);
-    var ProvinceID = $(this).attr("id");
+    }
+    
     for(var i=0; i < ProvinceData.length; i++) {
        if (ProvinceData[i].label == ProvinceID) {
         document.getElementById("dataProv").innerHTML = ProvinceData[i].name;
         document.getElementById("dataValues").innerHTML = ProvinceData[i].value;
-        }
-     }
+
+    }
+}
 });
 
 allStates.on("click", function() {
     allStates.removeClass("on");
     $(this).addClass("on");
     activate = true;
-    d3.select(this)
-    .attr('stroke', 'red')
-   .attr('stroke-width', 3);
     var ProvinceID = $(this).attr("id");
+    if (ProvinceID == "newfoundland" && newFoundTrue == true)
+    {
+    d3.select(this)
+    .attr('stroke','none');
+    } 
+    else{
+    d3.select(this)
+    .transition()
+    .duration("700")
+    .attr('stroke', 'red')
+    .style('stroke-width', 3)
+    .style("stroke-opacity",0.5);
+    }
+    
     for(var i=0; i < ProvinceData.length; i++) {
        if (ProvinceData[i].label == ProvinceID) {
         document.getElementById("dataProv").innerHTML = ProvinceData[i].name;
         document.getElementById("dataValues").innerHTML = ProvinceData[i].value;
         }
-     }
+    }
 });
 
 
 allStates.on("mouseout", function() {
-    d3.select(this).transition()
-    .attr('stroke', 0);
-    allStates.removeClass("off");
+	allStates.removeClass("off");
     $(this).addClass("off");
-    activate = false;
 
+    var ProvinceID = $(this).attr("id");
+    if (ProvinceID == "territories" && newFoundTrue == true)
+    {  
+    d3.select(this).transition()
+    .style('stroke-width', 2)
+    .style('stroke-opacity', 0.1);
+    }
+    else if (ProvinceID == "novaScotia" && newFoundTrue == true)
+    {  
+    d3.select(this).transition()
+    .style('stroke-width', 2)
+    .style('stroke-opacity', 0.1);
+    }
+    else if (ProvinceID == "newBrunswick" && newFoundTrue == true)
+    {  
+    d3.select(this).transition()
+    .style('stroke-width', 2)
+    .style('stroke-opacity', 0.1);
+    }
+    else if (ProvinceID == "PEI" && newFoundTrue == true)
+    {  
+    d3.select(this).transition()
+    .style('stroke-width', 2)
+    .style('stroke-opacity', 0.1);
+    }
+    
+    else{    
+    d3.select(this).transition()
+    .attr('stroke', 0);   
+
+    }
+
+    activate = false;
+    
 
 });
 
@@ -763,7 +813,34 @@ function nodeOne()
 
     document.getElementById("year").innerHTML="1921";
     document.getElementById("description").innerHTML=description1921;
-
+ /*GREY AREAS*/
+    var newTER = document.getElementById("territories");
+    newTER.style 
+    d3.select(newTER)
+    .style('stroke-width', 2)
+    .style('stroke-opacity', 0.1)
+    .attr('stroke', 'red');
+    
+    var newNOV = document.getElementById("novaScotia");
+    newNOV.style 
+    d3.select(newNOV)
+    .style('stroke-width', 2)
+    .style('stroke-opacity', 0.1)
+    .attr('stroke', 'red');
+    var newBRUN = document.getElementById("newBrunswick");
+    newBRUN.style 
+    d3.select(newBRUN)
+    .style('stroke-width', 2)
+    .style('stroke-opacity', 0.1)
+    .attr('stroke', 'red');
+    var newPEI = document.getElementById("PEI");
+    newPEI.style 
+    d3.select(newPEI)
+    .style('stroke-width', 2)
+    .style('stroke-opacity', 0.1)
+    .attr('stroke', 'red');
+    
+    newFoundTrue = true;
 }
 function nodeTwo()
 {
@@ -782,6 +859,26 @@ function nodeTwo()
             ProvinceData[i].value = ProvinceData1973[i].value;
             ProvinceData[i].name = ProvinceData1973[i].name;
         }
+	 /*GREY AREAS*/
+    var newTER = document.getElementById("territories");
+    newTER.style 
+    d3.select(newTER)
+    .style('stroke-width', 0);
+    var newNOV = document.getElementById("novaScotia");
+    newNOV.style 
+    d3.select(newNOV)
+    .style('stroke-width', 0);
+    var newBRUN = document.getElementById("newBrunswick");
+    newBRUN.style 
+    d3.select(newBRUN)
+    .style('stroke-width', 0);
+    var newPEI = document.getElementById("PEI");
+    newPEI.style 
+    d3.select(newPEI)
+    .style('stroke-width', 0);
+    
+    newFoundTrue = false;
+
 }
 
 function nodeThree()
@@ -803,7 +900,26 @@ function nodeThree()
             ProvinceData[i].name = ProvinceData2010[i].name;
 
         }
-
+    
+    /*GREY AREAS*/
+    var newTER = document.getElementById("territories");
+    newTER.style 
+    d3.select(newTER)
+    .style('stroke-width', 0);
+    var newNOV = document.getElementById("novaScotia");
+    newNOV.style 
+    d3.select(newNOV)
+    .style('stroke-width', 0);
+    var newBRUN = document.getElementById("newBrunswick");
+    newBRUN.style 
+    d3.select(newBRUN)
+    .style('stroke-width', 0);
+    var newPEI = document.getElementById("PEI");
+    newPEI.style 
+    d3.select(newPEI)
+    .style('stroke-width', 0);
+    
+    newFoundTrue = false;
 }
 
 
