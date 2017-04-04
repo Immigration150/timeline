@@ -5,7 +5,7 @@ $( document ).ready(function() {
 
 var bar = document.getElementById("arrow")
 bar.addEventListener('click', resize);
-var splashScreenClick = document.getElementById("splashScreen").addEventListener("click", function(){document.getElementById("splashScreen").classList.add('closed');});
+var splashScreenClick = document.getElementById("splashScreen").addEventListener("click", function(){document.getElementById("splashScreen").classList.add('closed');resizeHeight();});
 //bar.addEventListener('touchstart', resize);
 var nodeNumb = 1;
 //var splashScreenClick = document.getElementById("splashScreen").addEventListener("click", function(){document.getElementById("splashScreen").classList.add('closed');});
