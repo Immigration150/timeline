@@ -1,4 +1,19 @@
+#instructions{
+	position:fixed;
+	padding: 2%;
+	text-align:left;
+	font-size: 16px;
+}
 
+.instrShow{
+	opacity: 1;
+	transition:1s;
+}
+
+.instrHide{
+	opacity: 0;
+	transition:1s;
+}
 
 body{
 	margin: 0px;
@@ -123,6 +138,14 @@ body{
 
 
 @media only screen and (min-width: 901px) {
+	
+	#instructions{
+		width: 30%;
+		left: 250px;
+		color: #006;
+		font-size: 20px;
+	}
+	
 	#year{
 		width: 250px;
 		height: 100px;
@@ -165,6 +188,13 @@ body{
 }
 
 @media (max-width: 900px) and (min-width: 471px) {
+	
+	#instructions{
+		width: 30%;
+		left: 150px;
+		top: 0px;
+		color: #006;
+	}
 
 	#sideBar{
 		width: 150px;
