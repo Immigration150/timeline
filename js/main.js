@@ -48,6 +48,8 @@ var $pieHeight = $map/3;
 function resizeHeight(){
 	$mapHeight = $("#map").height();
 	$pieHeight = $mapHeight/3;
+	
+	pie.updateProp("size.canvasHeight", $pieHeight);
 }
 
 
