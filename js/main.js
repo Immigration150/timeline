@@ -35,10 +35,10 @@ var bottomBar = false;
 
 //vars for slider
 var $map = $("#map").width();
-var description1921 = "22% of the Canadian population at the time was composed of immigrants, while 82% of immigrants have been in Canada for 10 years or more. 39,587 people in Canada were Chinese origin.";
+var description1921 = "22% of the Canadian population at the time was composed of immigrants, while 82% of immigrants have been in Canada for 10 years or more. 39,587 people in Canada were Chinese origin."
 
-var description1973 = "The Ugandan President announces that he will expel Ugandan Asians, and Canada offered to accept some of these people into the country. More than 7,000 Ugandan Asians were accepted into the country. During this time, the right to apply for immigration status while in Canada is revoked.";
-var description2010 = "In 2010, Canada received the largest amount of immigrants than in the past 50 years, accepting 280,681 immigrants. Around 67% were economic immigrants, 22% were family immigrants and 9% were refugees.";
+var description1973 = "The Ugandan President announces that he will expel Ugandan Asians, and Canada offered to accept some of these people into the country. More than 7,000 Ugandan Asians were accepted into the country. During this time, the right to apply for immigration status while in Canada is revoked."
+var description2010 = "In 2010, Canada received the largest amount of immigrants than in the past 50 years, accepting 280,681 immigrants. Around 67% were economic immigrants, 22% were family immigrants and 9% were refugees."
 var newFoundTrue = true;
 
 var $pieWidth = $map*0.6;
