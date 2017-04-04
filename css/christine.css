@@ -155,7 +155,8 @@ body{
 		visibility: visible;
 	}
 
-	#pieChartz{
+	#
+	z{
 		width: 40%;
 		height: 30%;
 		right: 0%;
@@ -299,8 +300,7 @@ body{
 	}
 	
 	#pieChart{
-		width: 20%;
-		height: 20%;
+		width: 100%;
 		right: 0px;
 		top: 80px;
 	}
