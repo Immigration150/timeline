@@ -40,7 +40,9 @@ var description1973 = "This is 1973 and this is what happened."
 var description2010 = "This is 2010 and this is what happened."
 var newFoundTrue = true;
 
-var $pieWidth = $map*0.5;
+var $pieWidth = $map*0.6;
+var $pieHeight = $map/3;
+
 var isNodeBtnClicked = false;
 var $snap = $("#snap"),
 	$container = $("#container"),
@@ -155,9 +157,20 @@ $(window).on("resize", function()
 	TweenLite.to("#pie", 1, {css: {right:("0"), float:("right")}});
 	TweenLite.to("#map", 1, {css: {top:("0")}});
 
-	$pieWidth = $map*0.5;
+	$pieHeight = $map/3;
+	
+	if($map < 600)
+	{
+		/*$fontSize = 13;*/
+		$pieWidth = $map * 0.8;
+	}
+	else{
+		
+		$pieWidth = $map*0.6;
+	}
+	
 	pie.updateProp("size.canvasWidth", $pieWidth);
-
+	pie.updateProp("size.canvasHeight", $pieHeight);
 
 });
 
@@ -324,7 +337,7 @@ var pie = new d3pie("pie", {
 	},
 	"size": {
 		"canvasWidth":  $pieWidth,
-		"canvasHeight": 250 ,
+		"canvasHeight": $map/3 ,
 		"pieInnerRadius": "70%",
 		"pieOuterRadius": "75%"
 	},
@@ -813,6 +826,7 @@ function nodeOne()
 
     document.getElementById("year").innerHTML="1921";
     document.getElementById("description").innerHTML=description1921;
+    document.getElementById("descriptionMobile").innerHTML=description1921;
  /*GREY AREAS*/
     var newTER = document.getElementById("territories");
     newTER.style 
@@ -854,6 +868,7 @@ function nodeTwo()
 
     document.getElementById("year").innerHTML="1973";
     document.getElementById("description").innerHTML = description1973;
+    document.getElementById("descriptionMobile").innerHTML = description1973;
         for(var i=0; i < ProvinceData.length; i++) {
             ProvinceData[i].label = ProvinceData1973[i].label;
             ProvinceData[i].value = ProvinceData1973[i].value;
@@ -893,6 +908,7 @@ function nodeThree()
 
      document.getElementById("year").innerHTML= "2010";
     document.getElementById("description").innerHTML = description2010;
+	document.getElementById("descriptionMobile").innerHTML = description2010;
 
         for(var i=0; i < ProvinceData.length; i++) {
             ProvinceData[i].label = ProvinceData2010[i].label;
@@ -937,6 +953,19 @@ setInterval(function() {
 	  {
 		  document.getElementById('pie').className = 'showPie';
 		  document.getElementById('pieChart').className = 'showPie';
+	  }
+	
+	
+	if(($(".hidePie").css('visibility') == 'visible'))
+	  {
+		  document.getElementById('descriptionMobile').className = 'mobile';
+		  document.getElementById('descriptionMobile').className = 'mobile';
+
+	  }
+	  if(($(".showPie").css('visibility') == 'visible'))
+	  {
+		  document.getElementById('descriptionMobile').className = 'nonMobile';
+		  document.getElementById('descriptionMobile').className = 'nonMobile';
 	  }
 
 	  /*if(bottomBar)
