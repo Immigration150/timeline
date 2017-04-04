@@ -32,6 +32,49 @@ body {
   font-family: 'Lato', sans-serif;
 }
 /*------main-------*/
+#intro
+{
+  color:white;
+  font-size: 20px;
+}
+body #splashScreen
+{
+  z-index:1000;
+  background-color:#242E3B;
+  position:absolute;
+  top:0;
+  left:0;
+  bottom:0;
+  width:100%;
+  opacity:1.0;
+  cursor:pointer;
+  text-align:center;
+  margin: 0 auto;
+  background-image: url(../assets/bg-01.png);
+  background-size:cover;
+background-position: center;
+  background-repeat: no-repeat;
+  overflow:hidden;
+}
+
+body #splashScreen.closed
+{
+  transition: 2s;
+  opacity:0;
+  visibility: hidden;
+    width: 100%;
+}
+
+body #splashLogo
+{
+  width: 550px;
+  height:auto;
+  top: 40%;
+  left: 50%;
+  position: fixed;
+  margin-left: -275px;
+}
+
 
 #splashScreen
 {
