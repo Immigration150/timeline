@@ -58,6 +58,8 @@ window.onload = function ()
 
     nodeOne();
     loadCircularDivPositioning();
+    
+    resizeHeight();
 }
 
 
