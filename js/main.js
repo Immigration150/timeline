@@ -139,9 +139,9 @@ $(window).on("resize", function()
 	/*TweenLit.to(".nodeButton", 1, {css: {left:Math.round(element._gsTransform.x / gridWidth) * gridWidth}});
 	TweenLite.to(".nodeButton", 1, {css: {left:(gridWidth*2)}});
 	TweenLite.to(element, 1, {x:Math.round(element._gsTransform.x / gridWidth) * gridWidth});*/
-	TweenLite.set(".slider", {width:gridWidth, height:gridHeight, lineHeight:gridHeight + "px"});
+	TweenLite.set(".slider", {width:gridWidth+2, height:gridHeight, lineHeight:gridHeight + "px"});
 	TweenLite.to("#TimePeriod_1", 1, {css: {left:gridWidth-2}});
-	TweenLite.to("#TimePeriod_0", 1, {css: {left:(gridWidth*2 - 2)}});
+	TweenLite.to("#TimePeriod_0", 1, {css: {left:(gridWidth*2 - 4)}});
 	applySnap();
 	/*TweenLite.to("#nodeButton1", 0.5, {x:(gridWidth - Math.round(element._gsTransform.x / gridWidth))});*/
 	TweenLite.to("#pie", 1, {css: {right:("0"), float:("right")}});
