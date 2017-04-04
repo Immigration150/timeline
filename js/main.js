@@ -61,9 +61,9 @@ var svg_timeline_bar = $('Timeline_Line.svg');
 
 
 //calls applySnap which tweens the button
-$nodeButtonRef.on("mousedown", function(){isNodeBtnClicked = true; });
+$nodeButtonRef.on("mousedown touchstart", function(){isNodeBtnClicked = true; });
 
-$(window).on("mouseup", function(){if(isNodeBtnClicked){applySnap(); isNodeBtnClicked=false;}});
+$(window).on("mouseup touchend", function(){if(isNodeBtnClicked){applySnap(); isNodeBtnClicked=false;}});
 
 //$nodeButtonRef.on("mouseup", function(){isNodeBtnClicked = false;});
 
