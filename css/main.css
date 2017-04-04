@@ -27,12 +27,38 @@
   }
 }
 
-
 body {
   background-color:white;
   font-family: 'Lato', sans-serif;
 }
 /*------main-------*/
+
+#splashScreen
+{
+  z-index:1000;
+  background-color:#242E3B;
+  position:absolute;
+  top:0;
+  left:0;
+  bottom:0;
+  width:100%;
+  cursor:pointer;
+}
+
+#splashScreen.closed
+{
+  transition: 2s;
+  width:0%;
+  visibility: hidden;
+}
+
+#splashLogo
+{
+  position:relative;
+  width: auto;
+  height: auto;
+}
+
 #map
 {
   z-index:0.9;
@@ -44,6 +70,8 @@ body {
   padding:0;
   /*position:relative;*/
 }
+
+h4{font-size:2em; color:black;}
 
 .nodeBtnInner
 {
