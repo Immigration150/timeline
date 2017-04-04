@@ -87,6 +87,13 @@ body {
   background-image: url(../assets/logo-01.svg);
   background-size: 95%;
   background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+}
+
+#logo:hover
+{
+    background-color:#071a26;
 }
 
 #main img {
