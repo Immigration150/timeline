@@ -45,6 +45,12 @@ var newFoundTrue = true;
 var $pieWidth = $map*0.6;
 var $pieHeight = $map/3;
 
+function resizeHeight(){
+	$mapHeight = $("#map").height();
+	$pieHeight = $mapHeight/3;
+}
+
+
 var isNodeBtnClicked = false;
 var $snap = $("#snap"),
 	$container = $("#container"),
