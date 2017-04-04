@@ -337,7 +337,7 @@ var pie = new d3pie("pie", {
 	},
 	"size": {
 		"canvasWidth":  $pieWidth,
-		"canvasHeight": $map/3 ,
+		"canvasHeight": $pieHeight ,
 		"pieInnerRadius": "70%",
 		"pieOuterRadius": "75%"
 	},
