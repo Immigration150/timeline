@@ -7,7 +7,7 @@ var bar = document.getElementById("arrow")
 bar.addEventListener('click', resize);
 var splashScreenClick = document.getElementById("splashScreen").addEventListener("click", function(){document.getElementById("splashScreen").classList.add('closed');});
 //bar.addEventListener('touchstart', resize);
-
+var nodeNumb = 1;
 //var splashScreenClick = document.getElementById("splashScreen").addEventListener("click", function(){document.getElementById("splashScreen").classList.add('closed');});
 function resize(){
 	if(status == 0){
@@ -810,6 +810,7 @@ d3.select("svg.CanadaMap").selectAll("g")
 //animation functions
 function nodeOne()
 {
+	nodeNumb = 1;
 		var shezanRef = document.getElementById("shezan");
 		var ireneRef = document.getElementById("irene");
 		var joyceRef = document.getElementById("joyce");
@@ -859,6 +860,7 @@ function nodeOne()
 }
 function nodeTwo()
 {
+	nodeNumb = 2;
 		var shezanRef = document.getElementById("shezan");
 		var ireneRef = document.getElementById("irene");
 		var joyceRef = document.getElementById("joyce");
@@ -899,6 +901,7 @@ function nodeTwo()
 
 function nodeThree()
 {
+	nodeNumb = 3;
 		var shezanRef = document.getElementById("shezan");
 		var ireneRef = document.getElementById("irene");
 		var joyceRef = document.getElementById("joyce");
@@ -948,12 +951,38 @@ setInterval(function() {
 	  {
 		  document.getElementById('pie').className = 'hidePie';
 		  document.getElementById('pieChart').className = 'hidePie';
+		  
+		  if(nodeNumb == 1)
+		  {
+		  hideDivs(document.getElementById("joyce"), "null", "null");
+		  }
+		  if(nodeNumb == 2)
+		  {
+		  hideDivs(document.getElementById("shezan"), "null", "null");
+		  }
+		  if(nodeNumb == 3)
+		  {
+		  hideDivs(document.getElementById("irene"), "null", "null");
+		  }
 
 	  }
 	  else
 	  {
 		  document.getElementById('pie').className = 'showPie';
 		  document.getElementById('pieChart').className = 'showPie';
+		  
+		  if(nodeNumb == 1)
+		  {
+		  	showDivs(document.getElementById("joyce"), "null", "null");
+		  }
+		  if(nodeNumb == 2)
+		  {
+		  	showDivs(document.getElementById("shezan"), "null", "null");
+		  }
+		  if(nodeNumb == 3)
+		  {
+		  	showDivs(document.getElementById("irene"), "null", "null");
+		  }
 	  }
 	
 	
