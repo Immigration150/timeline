@@ -515,7 +515,7 @@ var ProvinceData1973 = [
   {
 				"label": "territories",
 				"value": "268 Immigrated",
-                "name": "Yukon and N.W.T",
+                "name": "Territories",
 				"color": "#EE6735"
 			},
 			{
@@ -582,7 +582,7 @@ var ProvinceData1973 = [
             {
 				"label": "newfoundland",
 				"value": "984 Immigrated",
-                "name": "Newfoundland",
+                "name": "Newfoundland and Labrador",
 				"color": "#646472"
 			}
 ];
@@ -590,7 +590,7 @@ var ProvinceData2010 = [
   {
 				"label": "territories",
 				"value": "561 Immigrated",
-                      "name": "Territories",
+                     		 "name": "Territories",
 
 				"color": "#EE6735"
 			},
@@ -660,8 +660,7 @@ var ProvinceData2010 = [
             {
 				"label": "newfoundland",
 				"value": "842 Immigrated",
-                                "name": "Newfoundland",
-
+                                "name": "Newfoundland and Labrador",
 				"color": "#646472"
 			}
 ];
