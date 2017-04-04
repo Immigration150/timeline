@@ -324,3 +324,26 @@ body{
 		visibility:hidden;
 	}
 }
+
+.nonMobile{
+	opacity: 0;
+	transition:1s;
+	visibility:hidden;
+}
+
+.mobile{
+	opacity: 1;
+	transition:1s;
+	visibility:visible;
+}
+
+#descriptionMobile
+{
+	color: white;
+}
+
+#descriptionMobile p
+{
+	color: white;
+}
+
