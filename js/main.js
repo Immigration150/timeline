@@ -1,14 +1,13 @@
-
 $( document ).ready(function() {
     console.log( "ready!" );
-	
+
 	status = 0;
 
 var bar = document.getElementById("arrow")
 bar.addEventListener('click', resize);
 //bar.addEventListener('touchstart', resize);
 
-
+//var splashScreenClick = document.getElementById("splashScreen").addEventListener("click", function(){document.getElementById("splashScreen").classList.add('closed');});
 function resize(){
 	if(status == 0){
 		document.getElementById("mobileBottomBar").className = 'grow';
@@ -33,21 +32,19 @@ function resize(){
 });
 
 var bottomBar = false;
+
+//vars for slider
 var $map = $("#map").width();
 var description1921 = "This is 1921 and this is what happened."
 var description1973 = "This is 1973 and this is what happened."
 var description2010 = "This is 2010 and this is what happened."
 
-//vars for slider
-var $map = $("#map").width();
 var $pieWidth = $map*0.5;
-var node = 1;
-var modalVisible = $(".md-show");
-
+var isNodeBtnClicked = false;
 var $snap = $("#snap"),
 	$container = $("#container"),
 	gridWidth = $map/3,
-	gridHeight = 70,
+	gridHeight = 75,
 	gridRows = 1,
 	gridColumns = 3,
 	i, x, y;
@@ -64,8 +61,13 @@ var svg_timeline_bar = $('Timeline_Line.svg');
 
 
 //calls applySnap which tweens the button
-$nodeButtonRef.on("mouseup", applySnap);
-//$(window).on("mouseup", applySnap);     //can use this but needs polish - would trigger event on any mouseup
+$nodeButtonRef.on("mousedown", function(){isNodeBtnClicked = true; });
+
+$(window).on("mouseup", function(){if(isNodeBtnClicked){applySnap(); isNodeBtnClicked=false;}});
+
+//$nodeButtonRef.on("mouseup", function(){isNodeBtnClicked = false;});
+
+     //can use this but needs polish - would trigger event on any mouseup
 
 for (i = 0; i < gridRows * gridColumns; i++) {
 	y = Math.floor(i / gridColumns) * gridHeight;
@@ -139,13 +141,14 @@ $(window).on("resize", function()
 	$map = $("#map").width();
     gridWidth = $map/gridColumns;
     TweenLite.set($container, {height: gridRows * gridHeight + 1, width: gridColumns * gridWidth });
-    TweenLite.set(".nodeButton", {width:gridWidth, height:gridHeight, lineHeight:gridHeight + "px"});
+
 	/*TweenLit.to(".nodeButton", 1, {css: {left:Math.round(element._gsTransform.x / gridWidth) * gridWidth}});
 	TweenLite.to(".nodeButton", 1, {css: {left:(gridWidth*2)}});
 	TweenLite.to(element, 1, {x:Math.round(element._gsTransform.x / gridWidth) * gridWidth});*/
-	TweenLite.set(".slider", {width:gridWidth+2, height:gridHeight, lineHeight:gridHeight + "px"});
+	TweenLite.set(".slider", {width:gridWidth, height:gridHeight, lineHeight:gridHeight + "px"});
 	TweenLite.to("#TimePeriod_1", 1, {css: {left:gridWidth-2}});
-	TweenLite.to("#TimePeriod_0", 1, {css: {left:(gridWidth*2 - 4)}});
+	TweenLite.to("#TimePeriod_0", 1, {css: {left:(gridWidth*2 - 2)}});
+	TweenLite.set(".nodeButton", {width:gridWidth, height:gridHeight, lineHeight:gridHeight + "px"});
 	applySnap();
 	/*TweenLite.to("#nodeButton1", 0.5, {x:(gridWidth - Math.round(element._gsTransform.x / gridWidth))});*/
 	TweenLite.to("#pie", 1, {css: {right:("0"), float:("right")}});
@@ -153,15 +156,6 @@ $(window).on("resize", function()
 
 	$pieWidth = $map*0.5;
 	pie.updateProp("size.canvasWidth", $pieWidth);
-	
-	if(node == 2)
-	{
-		TweenLite.to("#TimePeriod_1", 1, {css: {left:(gridWidth-2)}});
-	}
-	if(node == 3)
-	{
-		TweenLite.to("#TimePeriod_0", 1, {css: {left:(gridWidth*2 - 2)}});
-	}
 
 
 });
@@ -181,23 +175,17 @@ function tweenDone(elementRef, positionRef, xRef)
     if(between(Math.round(positionRef), ($nodeButtonRef.width()*0)-2, ($nodeButtonRef.width()*0)+2))
     {
         nodeOne();
-		node = 1;
-		console.log("node 1");
 
     }
 
     else if(between(Math.round(positionRef), ($nodeButtonRef.width()*1)-2, ($nodeButtonRef.width()*1)+2))
     {
         nodeTwo();
-		node = 2;
-		console.log("node 2");
     }
 
     else if(between(Math.round(positionRef), ($nodeButtonRef.width()*2)-2, ($nodeButtonRef.width()*2)+2))
     {
         nodeThree();
-		node = 3;
-		console.log("node 3");
     }
 
 }
@@ -313,7 +301,6 @@ var data2010 = [
 				"color": "#646472"
 			}
 ];
-
 var pie = new d3pie("pie", {
 "header": {
 		"title": {
@@ -377,82 +364,13 @@ var pie = new d3pie("pie", {
 	},
 	"effects": {
 		"pullOutSegmentOnClick": {
-			"effect": "elastic", <!-- linear, elastic, bounce, backing in -->
+			"effect": "linear", <!-- linear, elastic, bounce, backing in -->
 			"speed": 400,
 			"size": 8
 		}
 	},
 	"callbacks": {}
 });
-
-
-//animation functions
-function nodeOne()
-{
-		var shezanRef = document.getElementById("shezan");
-		var ireneRef = document.getElementById("irene");
-		var joyceRef = document.getElementById("joyce");
-    nodeOne_calledOnMap();
-		hideDivs(shezanRef, ireneRef);
-		showDivs(joyceRef);
-    pie.updateProp("data.content", data1957);
-	node = 1;
-	
-	    for(var i=0; i < ProvinceData.length; i++) {
-        ProvinceData[i].label = ProvinceData1921[i].label; 
-        ProvinceData[i].value = ProvinceData1921[i].value;
-        ProvinceData[i].name = ProvinceData1921[i].name; 
-
-    }
-
-    
-    document.getElementById("year").innerHTML="1921";
-    document.getElementById("description").innerHTML=description1921;
-	
-
-}
-function nodeTwo()
-{
-		var shezanRef = document.getElementById("shezan");
-		var ireneRef = document.getElementById("irene");
-		var joyceRef = document.getElementById("joyce");
-    nodeTwo_calledOnMap();
-		hideDivs(ireneRef, joyceRef);
-		showDivs(shezanRef);
-    pie.updateProp("data.content", data1973);
-	node = 2;
-	
-	 document.getElementById("year").innerHTML="1973";
-    document.getElementById("description").innerHTML = description1973;
-        for(var i=0; i < ProvinceData.length; i++) {
-            ProvinceData[i].label = ProvinceData1973[i].label; 
-            ProvinceData[i].value = ProvinceData1973[i].value;
-            ProvinceData[i].name = ProvinceData1973[i].name; 
-        }
-
-}
-
-function nodeThree()
-{
-		var shezanRef = document.getElementById("shezan");
-		var ireneRef = document.getElementById("irene");
-		var joyceRef = document.getElementById("joyce");
-    nodeThree_calledOnMap();
-		hideDivs(shezanRef, joyceRef);
-		showDivs(ireneRef);
-    pie.updateProp("data.content", data2010);
-	node = 3;
-	 document.getElementById("year").innerHTML= "2010";
-    document.getElementById("description").innerHTML = description2010;
-
-        for(var i=0; i < ProvinceData.length; i++) {
-            ProvinceData[i].label = ProvinceData2010[i].label; 
-            ProvinceData[i].value = ProvinceData2010[i].value;
-            ProvinceData[i].name = ProvinceData2010[i].name; 
-
-        }
-
-}
 
 /* SVG TOOLTIP START */
 var tooltip = d3.selectAll(".tooltip:not(.css)");
@@ -664,7 +582,7 @@ var ProvinceData1973 = [
             {
 				"label": "newfoundland",
 				"value": "984 Immigrated",
-                "name": "Newfoundland and Labrador",
+                "name": "Newfoundland",
 				"color": "#646472"
 			}
 ];
@@ -742,7 +660,7 @@ var ProvinceData2010 = [
             {
 				"label": "newfoundland",
 				"value": "842 Immigrated",
-                                "name": "Newfoundland and Labrador",
+                                "name": "Newfoundland",
 
 				"color": "#646472"
 			}
@@ -753,52 +671,49 @@ var allStates = $("svg.CanadaMap> *");
 allStates.on("mouseenter", function() {
     allStates.removeClass("on");
     $(this).addClass("on");
-    var ProvinceID = $(this).attr("id");
-   
+    //var thisOp = $(this).attr("fill-opacity");
     d3.select(this)
+    .style('stroke-width', 0)
+    .attr('stroke', 'white')
     .transition()
     .duration("700")
     .attr('stroke', 'red')
     .style('stroke-width', 6)
     .style("stroke-opacity",0.5);
-    
+    var ProvinceID = $(this).attr("id");
     for(var i=0; i < ProvinceData.length; i++) {
        if (ProvinceData[i].label == ProvinceID) {
         document.getElementById("dataProv").innerHTML = ProvinceData[i].name;
         document.getElementById("dataValues").innerHTML = ProvinceData[i].value;
-        
-    }
-}
+        }
+     }
 });
 
 allStates.on("click", function() {
     allStates.removeClass("on");
     $(this).addClass("on");
     activate = true;
-     var ProvinceID = $(this).attr("id");
-
     d3.select(this)
     .attr('stroke', 'red')
-    .attr('stroke-width', 3);
+   .attr('stroke-width', 3);
+    var ProvinceID = $(this).attr("id");
     for(var i=0; i < ProvinceData.length; i++) {
        if (ProvinceData[i].label == ProvinceID) {
         document.getElementById("dataProv").innerHTML = ProvinceData[i].name;
         document.getElementById("dataValues").innerHTML = ProvinceData[i].value;
-            }
-    }
+        }
+     }
 });
 
 
 allStates.on("mouseout", function() {
-    
     d3.select(this).transition()
     .attr('stroke', 0);
-    
     allStates.removeClass("off");
     $(this).addClass("off");
     activate = false;
-    
-    
+
+
 });
 
 d3.select("svg.CanadaMap").selectAll("g")
@@ -806,19 +721,22 @@ d3.select("svg.CanadaMap").selectAll("g")
 .on("mouseover", function () {
         tooltip.style("opacity", "1");
     })
+
 .on("click", function () {
         tooltip.style("opacity", "1");
         var mouseCoords = d3.mouse(SVGmouseTip.node().parentElement);
         SVGmouseTip
             .attr("transform", "translate("
-                  + (mouseCoords[0]-10) + "," 
+                  + (mouseCoords[0]-10) + ","
                   + (mouseCoords[1] - 10) + ")");
     })
+
+
 .on("mousemove", function () {
         var mouseCoords = d3.mouse(SVGmouseTip.node().parentElement);
         SVGmouseTip
             .attr("transform", "translate("
-                  + (mouseCoords[0]-10) + "," 
+                  + (mouseCoords[0]-10) + ","
                   + (mouseCoords[1] - 10) + ")");
     })
 .on("mouseout", function () {
@@ -826,10 +744,71 @@ d3.select("svg.CanadaMap").selectAll("g")
     });
 /* SVG TOOLTIP END */
 
-update();
-//var class = document.getElementById('mobileBottomBar');
+//animation functions
+function nodeOne()
+{
+		var shezanRef = document.getElementById("shezan");
+		var ireneRef = document.getElementById("irene");
+		var joyceRef = document.getElementById("joyce");
+    nodeOne_calledOnMap();
+		hideDivs(shezanRef, ireneRef, "null");
+		showDivs(joyceRef, "null", "null");
+    pie.updateProp("data.content", data1957);
 
-//class.getClass().getSimpleName();
+        for(var i=0; i < ProvinceData.length; i++) {
+        ProvinceData[i].label = ProvinceData1921[i].label;
+        ProvinceData[i].value = ProvinceData1921[i].value;
+        ProvinceData[i].name = ProvinceData1921[i].name;
+
+    }
+
+    document.getElementById("year").innerHTML="1921";
+    document.getElementById("description").innerHTML=description1921;
+
+}
+function nodeTwo()
+{
+		var shezanRef = document.getElementById("shezan");
+		var ireneRef = document.getElementById("irene");
+		var joyceRef = document.getElementById("joyce");
+    nodeTwo_calledOnMap();
+		hideDivs(ireneRef, joyceRef, "null");
+		showDivs(shezanRef, "null", "null");
+    pie.updateProp("data.content", data1973);
+
+    document.getElementById("year").innerHTML="1973";
+    document.getElementById("description").innerHTML = description1973;
+        for(var i=0; i < ProvinceData.length; i++) {
+            ProvinceData[i].label = ProvinceData1973[i].label;
+            ProvinceData[i].value = ProvinceData1973[i].value;
+            ProvinceData[i].name = ProvinceData1973[i].name;
+        }
+}
+
+function nodeThree()
+{
+		var shezanRef = document.getElementById("shezan");
+		var ireneRef = document.getElementById("irene");
+		var joyceRef = document.getElementById("joyce");
+    nodeThree_calledOnMap();
+		hideDivs(shezanRef, joyceRef, "null");
+		showDivs(ireneRef, "null", "null");
+    pie.updateProp("data.content", data2010);
+
+     document.getElementById("year").innerHTML= "2010";
+    document.getElementById("description").innerHTML = description2010;
+
+        for(var i=0; i < ProvinceData.length; i++) {
+            ProvinceData[i].label = ProvinceData2010[i].label;
+            ProvinceData[i].value = ProvinceData2010[i].value;
+            ProvinceData[i].name = ProvinceData2010[i].name;
+
+        }
+
+}
+
+
+update();
 
 setInterval(function() {
 	//console.log("class: " + class);
@@ -837,14 +816,14 @@ setInterval(function() {
 	  {
 		  document.getElementById('pie').className = 'hidePie';
 		  document.getElementById('pieChart').className = 'hidePie';
-		  
+
 	  }
 	  else
 	  {
 		  document.getElementById('pie').className = 'showPie';
 		  document.getElementById('pieChart').className = 'showPie';
 	  }
-	  
+
 	  /*if(bottomBar)
 	  {
 		 //delay(20000);
@@ -855,5 +834,5 @@ setInterval(function() {
 		  document.getElementById('pie').className = 'showPie';
 		  document.getElementById('pieChart').className = 'showPie';
 	  }*/
-		  
+
 }, 100);
