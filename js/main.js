@@ -7,6 +7,9 @@ var bar = document.getElementById("arrow")
 bar.addEventListener('click', resize);
 var splashScreenClick = document.getElementById("splashScreen").addEventListener("click", function(){document.getElementById("splashScreen").classList.add('closed');resizeHeight();});
 //bar.addEventListener('touchstart', resize);
+
+document.getElementById("instructions").className = 'instrShow';	
+	
 var nodeNumb = 1;
 //var splashScreenClick = document.getElementById("splashScreen").addEventListener("click", function(){document.getElementById("splashScreen").classList.add('closed');});
 function resize(){
@@ -878,6 +881,8 @@ function nodeTwo()
 		hideDivs(ireneRef, joyceRef, "null");
 		showDivs(shezanRef, "null", "null");
     pie.updateProp("data.content", data1973);
+	
+   document.getElementById("instructions").className = 'instrHide';
 
     document.getElementById("year").innerHTML="1972";
     document.getElementById("description").innerHTML = description1973;
@@ -919,6 +924,8 @@ function nodeThree()
 		hideDivs(shezanRef, joyceRef, "null");
 		showDivs(ireneRef, "null", "null");
     pie.updateProp("data.content", data2010);
+	
+	document.getElementById("instructions").className = 'instrHide';
 
      document.getElementById("year").innerHTML= "2010";
     document.getElementById("description").innerHTML = description2010;
