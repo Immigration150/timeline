@@ -80,6 +80,15 @@ body {
   transform: scale(0.98, 0.98)
 }
 
+
+
+#logo
+{
+  background-image: url(../assets/logo-01.svg);
+  background-size: 95%;
+  background-repeat: no-repeat;
+}
+
 #main img {
     width:100%;
 }
