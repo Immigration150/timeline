@@ -42,6 +42,19 @@ body{
 
 }
 
+.showPie{
+		visibility: visible;
+		opacity: 1;
+		transition-duration: 1s;
+	}
+	
+.hidePie{
+		
+		visibility:hidden;
+		opacity: 0;
+		transition-duration: 1s;
+}
+
 #map{
 	/*width: 70%;*/
 	/*width: 80%;*/
@@ -210,71 +223,100 @@ body{
 		padding: 0px;
 		margin: 0px;
 		background-color:#242f3b;
-
+		position: fixed;
 	}
-
+	
 	#mobileBottomBar{
 		visibility:visible;
 		width: 100%;
-		height: 80px;
 		padding: 0px;
 		background-color:#242f3b;
 		position:fixed;
 		bottom: 0;
 		left:0;
-
+		text-align: center;
+		
 	}
-
+	
+	
+	
 	.grow{
 		height: calc(100% - 80px);
-		width: 100%;
-		display:inline-block;
-		background-color:#242f3b;
-		top: 80px;
+		/*top: 80px;*/
+		transition-duration: 1.2s;
 	}
-
+	
 	.normal{
-
-		height: 0px;
+		
+		height: 60px;
+		transition-duration: 1.2s;
 	}
-
+	
 	#mobileBottomBar img{
-		width: 80%;
+		width: 60%;
 	}
-
+	
+	#arrow{
+		visibility:visible;
+		width: 60%;
+		display:inline-block;
+		
+	}
+	
+	#arrow img{
+		width: 100%;
+	}
+	
+	.down{
+		-ms-transform: rotate(180deg); /* IE 9 */
+		-webkit-transform: rotate(180deg); /* Safari */
+		transform: rotate(180deg);
+		transition-duration: 1.2s;
+		top: 0;
+	}
+	
+	.up{
+		-ms-transform: rotate(0deg); /* IE 9 */
+		-webkit-transform: rotate(0deg); /* Safari */
+		transform: rotate(0deg);
+		transition-duration: 1.2s;
+		bottom: 0;
+	}
+	
 	#map{
 		width: 100%;
 		left: 0;
 		vertical-align:middle;
 	}
-
+	
 	#map img{
 		width: 100%;
 		height: 100%;
 	}
-
+	
 	#sideBar{
 		visibility: hidden;
 	}
-
-	#pieChartz{
-		width:50%;
+	
+	#pieChart{
+		width: 20%;
+		height: 20%;
 		right: 0px;
 		top: 80px;
 	}
-
+	
 	#container{
 		position:fixed;
 		bottom: 90px;
 	}
-
+	
 	#year{
 		width: 100%;
 		height: 80px;
 		line-height:80px;
 		font-size:20px;
 	}
-
+	
 	#description{
 		visibility:hidden;
 	}

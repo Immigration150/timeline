@@ -1,6 +1,44 @@
+
+$( document ).ready(function() {
+    console.log( "ready!" );
+	
+	status = 0;
+
+var bar = document.getElementById("arrow")
+bar.addEventListener('click', resize);
+//bar.addEventListener('touchstart', resize);
+
+
+function resize(){
+	if(status == 0){
+		document.getElementById("mobileBottomBar").className = 'grow';
+		status = 1;
+		bottomBar = true;
+		console.log(bottomBar);
+		document.getElementById("arrow").className = 'down';
+		//document.getElementById('pie').style.visibility='hidden';
+		  //document.getElementById('pieChart').style.visibility='hidden';
+		console.log("hidden");
+	}
+	else{
+		document.getElementById("mobileBottomBar").className = 'normal';
+		status = 0;
+		bottomBar = false;
+		document.getElementById("arrow").className = 'up';
+		console.log("visible");
+		//document.getElementById('pie').style.visibility='visible';
+		//document.getElementById('pieChart').style.visibility='visible';
+	}
+}
+});
+
+var bottomBar = false;
+
 //vars for slider
 var $map = $("#map").width();
 var $pieWidth = $map*0.5;
+var node = 1;
+var modalVisible = $(".md-show");
 
 var $snap = $("#snap"),
 	$container = $("#container"),
@@ -111,6 +149,15 @@ $(window).on("resize", function()
 
 	$pieWidth = $map*0.5;
 	pie.updateProp("size.canvasWidth", $pieWidth);
+	
+	if(node == 2)
+	{
+		TweenLite.to("#TimePeriod_1", 1, {css: {left:(gridWidth-2)}});
+	}
+	if(node == 3)
+	{
+		TweenLite.to("#TimePeriod_0", 1, {css: {left:(gridWidth*2 - 2)}});
+	}
 
 
 });
@@ -130,17 +177,23 @@ function tweenDone(elementRef, positionRef, xRef)
     if(between(Math.round(positionRef), ($nodeButtonRef.width()*0)-2, ($nodeButtonRef.width()*0)+2))
     {
         nodeOne();
+		node = 1;
+		console.log("node 1");
 
     }
 
     else if(between(Math.round(positionRef), ($nodeButtonRef.width()*1)-2, ($nodeButtonRef.width()*1)+2))
     {
         nodeTwo();
+		node = 2;
+		console.log("node 2");
     }
 
     else if(between(Math.round(positionRef), ($nodeButtonRef.width()*2)-2, ($nodeButtonRef.width()*2)+2))
     {
         nodeThree();
+		node = 3;
+		console.log("node 3");
     }
 
 }
@@ -339,6 +392,7 @@ function nodeOne()
 		hideDivs(shezanRef, ireneRef);
 		showDivs(joyceRef);
     pie.updateProp("data.content", data1957);
+	node = 1;
 
 }
 function nodeTwo()
@@ -350,6 +404,7 @@ function nodeTwo()
 		hideDivs(ireneRef, joyceRef);
 		showDivs(shezanRef);
     pie.updateProp("data.content", data1973);
+	node = 2;
 
 }
 
@@ -362,6 +417,37 @@ function nodeThree()
 		hideDivs(shezanRef, joyceRef);
 		showDivs(ireneRef);
     pie.updateProp("data.content", data2010);
+	node = 3;
 
 }
 update();
+//var class = document.getElementById('mobileBottomBar');
+
+//class.getClass().getSimpleName();
+
+setInterval(function() {
+	//console.log("class: " + class);
+      if(($(".md-show").css('visibility') == 'visible') || (bottomBar))
+	  {
+		  document.getElementById('pie').className = 'hidePie';
+		  document.getElementById('pieChart').className = 'hidePie';
+		  
+	  }
+	  else
+	  {
+		  document.getElementById('pie').className = 'showPie';
+		  document.getElementById('pieChart').className = 'showPie';
+	  }
+	  
+	  /*if(bottomBar)
+	  {
+		 //delay(20000);
+		  document.getElementById('pie').className = 'hidePie';
+		  document.getElementById('pieChart').className = 'hidePie';
+	  }
+	  else{
+		  document.getElementById('pie').className = 'showPie';
+		  document.getElementById('pieChart').className = 'showPie';
+	  }*/
+		  
+}, 100);
