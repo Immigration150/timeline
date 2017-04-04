@@ -36,14 +36,22 @@ var bottomBar = false;
 
 //vars for slider
 var $map = $("#map").width();
+<<<<<<< HEAD
 var $pieWidth = $map*0.5;
 var node = 1;
 var modalVisible = $(".md-show");
+=======
+var description1921 = "This is 1921 and this is what happened."
+var description1973 = "This is 1973 and this is what happened."
+var description2010 = "This is 2010 and this is what happened."
+>>>>>>> origin/master
 
+var $pieWidth = $map*0.5;
+var isNodeBtnClicked = false;
 var $snap = $("#snap"),
 	$container = $("#container"),
 	gridWidth = $map/3,
-	gridHeight = 70,
+	gridHeight = 75,
 	gridRows = 1,
 	gridColumns = 3,
 	i, x, y;
@@ -60,8 +68,13 @@ var svg_timeline_bar = $('Timeline_Line.svg');
 
 
 //calls applySnap which tweens the button
-$nodeButtonRef.on("mouseup", applySnap);
-//$(window).on("mouseup", applySnap);     //can use this but needs polish - would trigger event on any mouseup
+$nodeButtonRef.on("mousedown", function(){isNodeBtnClicked = true;});
+
+$(window).on("mouseup", function(){if(isNodeBtnClicked){applySnap(); isNodeBtnClicked=false;}});
+
+//$nodeButtonRef.on("mouseup", function(){isNodeBtnClicked = false;});
+
+     //can use this but needs polish - would trigger event on any mouseup
 
 for (i = 0; i < gridRows * gridColumns; i++) {
 	y = Math.floor(i / gridColumns) * gridHeight;
@@ -135,13 +148,14 @@ $(window).on("resize", function()
 	$map = $("#map").width();
     gridWidth = $map/gridColumns;
     TweenLite.set($container, {height: gridRows * gridHeight + 1, width: gridColumns * gridWidth });
-    TweenLite.set(".nodeButton", {width:gridWidth, height:gridHeight, lineHeight:gridHeight + "px"});
+
 	/*TweenLit.to(".nodeButton", 1, {css: {left:Math.round(element._gsTransform.x / gridWidth) * gridWidth}});
 	TweenLite.to(".nodeButton", 1, {css: {left:(gridWidth*2)}});
 	TweenLite.to(element, 1, {x:Math.round(element._gsTransform.x / gridWidth) * gridWidth});*/
 	TweenLite.set(".slider", {width:gridWidth, height:gridHeight, lineHeight:gridHeight + "px"});
 	TweenLite.to("#TimePeriod_1", 1, {css: {left:gridWidth-2}});
 	TweenLite.to("#TimePeriod_0", 1, {css: {left:(gridWidth*2 - 2)}});
+	TweenLite.set(".nodeButton", {width:gridWidth, height:gridHeight, lineHeight:gridHeight + "px"});
 	applySnap();
 	/*TweenLite.to("#nodeButton1", 0.5, {x:(gridWidth - Math.round(element._gsTransform.x / gridWidth))});*/
 	TweenLite.to("#pie", 1, {css: {right:("0"), float:("right")}});
@@ -309,7 +323,6 @@ var data2010 = [
 				"color": "#646472"
 			}
 ];
-
 var pie = new d3pie("pie", {
 "header": {
 		"title": {
@@ -381,6 +394,377 @@ var pie = new d3pie("pie", {
 	"callbacks": {}
 });
 
+/* SVG TOOLTIP START */
+var tooltip = d3.selectAll(".tooltip:not(.css)");
+var SVGmouseTip = d3.select("g.tooltip.mouse");
+var ProvinceData = [
+  {
+				"label": "territories",
+				"value": "NA Immigrated",
+                "name": "Territories",
+				"color": "#EE6735"
+			},
+			{
+				"label": "britishColumbia",
+				"value": "14,630 Immigrated",
+                "name": "British Columbia",
+				"color": "#EFCD35"
+			},
+			{
+				"label": "alberta",
+				"value": "17,781 Immigrated",
+                "name": "Alberta",
+				"color": "#21BF61"
+			},
+			{
+				"label": "saskatchewan",
+				"value": "13,392 Immigrated",
+                "name": "Saskatchewan",
+				"color": "#6DCBD4"
+			},
+			{
+				"label": "manitoba",
+				"value": "12,649 Immigrated",
+                "name": "Manitoba",
+				"color": "#6B6DB3"
+			},
+			{
+				"label": "ontario",
+                "value": "62,572 Immigrated",
+                "name": "Ontario",
+				"color": "#5455A5"
+			},
+			{
+				"label": "quebec",
+                "value": "21,100 Immigrated",
+                "name": "Québec",
+				"color": "#646472"
+			},
+    	    {
+				"label": "newBrunswick",
+                "value": "6,353 Immigrated",
+                 "name": "New Brunswick",
+				"color": "#646472"
+			},
+    	    {
+				"label": "PEI",
+                "value": "6,353 Immigrated",
+                "name": "Prince Edward Island",
+				"color": "#646472"
+			},
+            {
+				"label": "novaScotia",
+                "value": "6,353 Immigrated",
+                "name": "Nova Scotia",
+				"color": "#646472"
+			},
+            {
+				"label": "newfoundland",
+                "value": "",
+                "name": "",
+				"color": "#646472"
+			}
+];
+var ProvinceData1921 = [
+  {
+				"label": "territories",
+				"value": "NA Immigrated",
+                "name": "Territories",
+				"color": "#EE6735"
+			},
+			{
+				"label": "britishColumbia",
+				"value": "14,630 Immigrated",
+                "name": "British Columbia",
+				"color": "#EFCD35"
+			},
+			{
+				"label": "alberta",
+				"value": "17,781 Immigrated",
+                "name": "Alberta",
+				"color": "#21BF61"
+			},
+			{
+				"label": "saskatchewan",
+				"value": "13,392 Immigrated",
+                "name": "Saskatchewan",
+				"color": "#6DCBD4"
+			},
+			{
+				"label": "manitoba",
+				"value": "12,649 Immigrated",
+                "name": "Manitoba",
+				"color": "#6B6DB3"
+			},
+			{
+				"label": "ontario",
+                "value": "62,572 Immigrated",
+                "name": "Ontario",
+				"color": "#5455A5"
+			},
+			{
+				"label": "quebec",
+                "value": "21,100 Immigrated",
+                "name": "Québec",
+				"color": "#646472"
+			},
+    	    {
+				"label": "newBrunswick",
+                "value": "6,353 Immigrated",
+                 "name": "Maritime Provinces",
+				"color": "#646472"
+			},
+    	    {
+				"label": "PEI",
+                "value": "6,353 Immigrated3",
+                "name": "Maritime Provinces",
+				"color": "#646472"
+			},
+            {
+				"label": "novaScotia",
+                "value": "6,353 Immigrated",
+                "name": "Maritime Provinces",
+				"color": "#646472"
+			},
+            {
+				"label": "newfoundland",
+                "value": "",
+                "name": "",
+				"color": "#646472"
+			}
+];
+var ProvinceData1973 = [
+  {
+				"label": "territories",
+				"value": "268 Immigrated",
+                "name": "Yukon and N.W.T",
+				"color": "#EE6735"
+			},
+			{
+				"label": "britishColumbia",
+				"value": "27,949 Immigrated",
+                "name": "British Columbia",
+				"color": "#EFCD35"
+			},
+			{
+				"label": "alberta",
+				"value": "11,904 Immigrated",
+                "name": "Alberta",
+				"color": "#21BF61"
+			},
+			{
+				"label": "saskatchewan",
+				"value": "1,866 Immigrated",
+                                "name": "Saskatchewan",
+
+				"color": "#6DCBD4"
+			},
+			{
+				"label": "manitoba",
+				"value": "6,621 Immigrated",
+                                "name": "Manitoba",
+
+				"color": "#6B6DB3"
+			},
+			{
+				"label": "ontario",
+				"value": "103,187 Immigrated",
+                                "name": "Ontario",
+
+				"color": "#5455A5"
+			},
+			{
+				"label": "quebec",
+				"value": "26,871 Immigrated",
+                                "name": "Québec",
+
+				"color": "#646472"
+			},
+    	    {
+				"label": "newBrunswick",
+				"value": "1,729 Immigrated",
+                                 "name": "New Brunswick",
+
+				"color": "#646472"
+			},
+    	    {
+				"label": "PEI",
+				"value": "273 Immigrated",
+                                "name": "Prince Edward Island",
+
+				"color": "#646472"
+			},
+            {
+				"label": "novaScotia",
+				"value": "2,548 Immigrated",
+                                "name": "Nova Scotia",
+
+				"color": "#646472"
+			},
+            {
+				"label": "newfoundland",
+				"value": "984 Immigrated",
+                "name": "newfoundland and labrador",
+				"color": "#646472"
+			}
+];
+var ProvinceData2010 = [
+  {
+				"label": "territories",
+				"value": "561 Immigrated",
+                      "name": "Territories",
+
+				"color": "#EE6735"
+			},
+			{
+				"label": "britishColumbia",
+				"value": "44,068 Immigrated",
+                                "name": "British Columbia",
+
+				"color": "#EFCD35"
+			},
+			{
+				"label": "alberta",
+				"value": "32,560 Immigrated",
+                                "name": "Alberta",
+
+				"color": "#21BF61"
+			},
+			{
+				"label": "saskatchewan",
+				"value": "7,579 Immigrated",
+                                "name": "Saskatchewan",
+
+				"color": "#6DCBD4"
+			},
+			{
+				"label": "manitoba",
+				"value": "15,719 Immigrated",
+                                "name": "Manitoba",
+
+				"color": "#6B6DB3"
+			},
+			{
+				"label": "ontario",
+				"value": "118,171 Immigrated",
+                                "name": "Ontario",
+
+				"color": "#5455A5"
+			},
+			{
+				"label": "quebec",
+				"value": "53,893 Immigrated",
+                                "name": "Québec",
+
+				"color": "#646472"
+			},
+    	    {
+				"label": "newBrunswick",
+				"value": "2,246 Immigrated",
+                                 "name": "New Brunswick",
+
+				"color": "#646472"
+			},
+    	    {
+				"label": "PEI",
+				"value": "2,526 Immigrated",
+                                "name": "Prince Edward Island",
+
+				"color": "#646472"
+			},
+            {
+				"label": "novaScotia",
+				"value": "2,526 Immigrated",
+                                "name": "Nova Scotia",
+
+				"color": "#646472"
+			},
+            {
+				"label": "newfoundland",
+				"value": "842 Immigrated",
+                                "name": "newfoundland and labrador",
+
+				"color": "#646472"
+			}
+];
+
+var allStates = $("svg.CanadaMap> *");
+
+allStates.on("mouseenter", function() {
+    allStates.removeClass("on");
+    $(this).addClass("on");
+    //var thisOp = $(this).attr("fill-opacity");
+    d3.select(this)
+    .style('stroke-width', 0)
+    .attr('stroke', 'white')
+    .transition()
+    .duration("700")
+    .attr('stroke', 'red')
+    .style('stroke-width', 6)
+    .style("stroke-opacity",0.5);
+    var ProvinceID = $(this).attr("id");
+    for(var i=0; i < ProvinceData.length; i++) {
+       if (ProvinceData[i].label == ProvinceID) {
+        document.getElementById("dataProv").innerHTML = ProvinceData[i].name;
+        document.getElementById("dataValues").innerHTML = ProvinceData[i].value;
+        }
+     }
+});
+
+allStates.on("click", function() {
+    allStates.removeClass("on");
+    $(this).addClass("on");
+    activate = true;
+    d3.select(this)
+    .attr('stroke', 'red')
+   .attr('stroke-width', 3);
+    var ProvinceID = $(this).attr("id");
+    for(var i=0; i < ProvinceData.length; i++) {
+       if (ProvinceData[i].label == ProvinceID) {
+        document.getElementById("dataProv").innerHTML = ProvinceData[i].name;
+        document.getElementById("dataValues").innerHTML = ProvinceData[i].value;
+        }
+     }
+});
+
+
+allStates.on("mouseout", function() {
+    d3.select(this).transition()
+    .attr('stroke', 0);
+    allStates.removeClass("off");
+    $(this).addClass("off");
+    activate = false;
+
+    
+});
+
+d3.select("svg.CanadaMap").selectAll("g")
+
+.on("mouseover", function () {
+        tooltip.style("opacity", "1");
+    })
+
+.on("click", function () {
+        tooltip.style("opacity", "1");
+        var mouseCoords = d3.mouse(SVGmouseTip.node().parentElement);
+        SVGmouseTip
+            .attr("transform", "translate("
+                  + (mouseCoords[0]-10) + "," 
+                  + (mouseCoords[1] - 10) + ")");
+    })
+
+
+.on("mousemove", function () {
+        var mouseCoords = d3.mouse(SVGmouseTip.node().parentElement);
+        SVGmouseTip
+            .attr("transform", "translate("
+                  + (mouseCoords[0]-10) + "," 
+                  + (mouseCoords[1] - 10) + ")");
+    })
+.on("mouseout", function () {
+        return tooltip.style("opacity", "0");
+    });
+/* SVG TOOLTIP END */
 
 //animation functions
 function nodeOne()
@@ -394,6 +778,16 @@ function nodeOne()
     pie.updateProp("data.content", data1957);
 	node = 1;
 
+        for(var i=0; i < ProvinceData.length; i++) {
+        ProvinceData[i].label = ProvinceData1921[i].label; 
+        ProvinceData[i].value = ProvinceData1921[i].value;
+        ProvinceData[i].name = ProvinceData1921[i].name; 
+
+    }
+    
+    document.getElementById("year").innerHTML="1921";
+    document.getElementById("description").innerHTML=description1921;
+
 }
 function nodeTwo()
 {
@@ -404,8 +798,19 @@ function nodeTwo()
 		hideDivs(ireneRef, joyceRef);
 		showDivs(shezanRef);
     pie.updateProp("data.content", data1973);
+<<<<<<< HEAD
 	node = 2;
 
+=======
+    
+    document.getElementById("year").innerHTML="1973";
+    document.getElementById("description").innerHTML = description1973;
+        for(var i=0; i < ProvinceData.length; i++) {
+            ProvinceData[i].label = ProvinceData1973[i].label; 
+            ProvinceData[i].value = ProvinceData1973[i].value;
+            ProvinceData[i].name = ProvinceData1973[i].name; 
+        }
+>>>>>>> origin/master
 }
 
 function nodeThree()
@@ -417,9 +822,24 @@ function nodeThree()
 		hideDivs(shezanRef, joyceRef);
 		showDivs(ireneRef);
     pie.updateProp("data.content", data2010);
+<<<<<<< HEAD
 	node = 3;
+=======
+    
+     document.getElementById("year").innerHTML= "2010";
+    document.getElementById("description").innerHTML = description2010;
+
+        for(var i=0; i < ProvinceData.length; i++) {
+            ProvinceData[i].label = ProvinceData2010[i].label; 
+            ProvinceData[i].value = ProvinceData2010[i].value;
+            ProvinceData[i].name = ProvinceData2010[i].name; 
+
+        }
+>>>>>>> origin/master
 
 }
+
+
 update();
 //var class = document.getElementById('mobileBottomBar');
 
