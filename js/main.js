@@ -5,8 +5,10 @@ $( document ).ready(function() {
 
 var bar = document.getElementById("arrow")
 bar.addEventListener('click', resize);
-var splashScreenClick = document.getElementById("splashScreen").addEventListener("click", function(){document.getElementById("splashScreen").classList.add('closed');});
 //bar.addEventListener('touchstart', resize);
+    
+var splashScreenClick = document.getElementById("splashScreen").addEventListener("click", function(){document.getElementById("splashScreen").classList.add('closed');});
+
 
 //var splashScreenClick = document.getElementById("splashScreen").addEventListener("click", function(){document.getElementById("splashScreen").classList.add('closed');});
 function resize(){
@@ -36,9 +38,9 @@ var bottomBar = false;
 
 //vars for slider
 var $map = $("#map").width();
-var description1921 = "22% of the Canadian population at the time was composed of immigrants, while 82% of immigrants have been in Canada for 10 years or more. 39,587 people in Canada were Chinese origin."
-var description1973 = "The Ugandan President announces that he will expel Ugandan Asians, and Canada offered to accept some of these people into the country. More than 7,000 Ugandan Asians were accepted into the country. During this time, the right to apply for immigration status while in Canada is revoked."
-var description2010 = "In 2010, Canada received the largest amount of immigrants than in the past 50 years, accepting 280,681 immigrants. Around 67% were economic immigrants, 22% were family immigrants and 9% were refugees."
+var description1921 = "This is 1921 and this is what happened."
+var description1973 = "This is 1973 and this is what happened."
+var description2010 = "This is 2010 and this is what happened."
 var newFoundTrue = true;
 
 var $pieWidth = $map*0.6;
@@ -867,7 +869,7 @@ function nodeTwo()
 		showDivs(shezanRef, "null", "null");
     pie.updateProp("data.content", data1973);
 
-    document.getElementById("year").innerHTML="1972";
+    document.getElementById("year").innerHTML="1973";
     document.getElementById("description").innerHTML = description1973;
     document.getElementById("descriptionMobile").innerHTML = description1973;
         for(var i=0; i < ProvinceData.length; i++) {
