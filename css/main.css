@@ -1,3 +1,16 @@
+@media screen and (min-width: 1201px)
+{
+    body .splashLogo
+    {
+        width: 500px;
+      height:auto;
+      top: 40%;
+      left: 50%;
+      position: fixed;
+      margin-left: -275px;
+    }
+}
+
 @media screen and (max-width: 1200px)
 {
   body .nodeBtnInner
@@ -6,6 +19,20 @@
     height:65px;
     vertical-align: middle;
   }
+    body .splashLogo
+{
+  width: 500px;
+  height:auto;
+  top: 40%;
+  left: 50%;
+  position: fixed;
+  margin-left: -250px;
+}
+    .splashLogo #intro
+{
+  color:white;
+  font-size: 15px;
+}
 }
 @media screen and (max-width: 900px)
 {
@@ -15,6 +42,20 @@
     height:55px;
     vertical-align: middle;
   }
+    body .splashLogo
+    {
+      width: 400px;
+      height:auto;
+      top: 40%;
+      left: 50%;
+      position: fixed;
+      margin-left: -200px;
+    }
+    body .splashLogo #intro
+    {
+      color:white;
+      font-size: 12px;
+    }
 }
 
 @media screen and (max-width: 600px)
@@ -25,6 +66,26 @@
     height:50px;
     vertical-align: middle;
   }
+    body .splashLogo
+    {
+      width: 200px;
+      height:auto;
+      top: 40%;
+      left: 50%;
+      position: fixed;
+      margin-left: -100px;
+    }
+    
+    .splashLogo img{
+        width: 100%;
+    }
+    
+    .splashLogo #intro
+{
+  color:white;
+  font-size: 10px;
+    display:block;
+}
 }
 
 body {
@@ -52,7 +113,7 @@ body #splashScreen
   margin: 0 auto;
   background-image: url(../assets/bg-01.png);
   background-size:cover;
-background-position: center;
+    background-position: center;
   background-repeat: no-repeat;
   overflow:hidden;
 }
@@ -65,14 +126,14 @@ body #splashScreen.closed
     width: 100%;
 }
 
-body #splashLogo
+body .splashLogo
 {
-  width: 550px;
+  
   height:auto;
-  top: 40%;
-  left: 50%;
+  /*top: 40%;
+  left: 50%;*/
   position: fixed;
-  margin-left: -275px;
+  /*margin-left: -275px;*/
 }
 
 
