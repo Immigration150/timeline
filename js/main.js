@@ -547,7 +547,7 @@ var ProvinceData1973 = [
             {
 				"label": "newfoundland",
 				"value": "984 Immigrated",
-                "name": "Newfoundland",
+                "name": "newfoundland and labrador",
 				"color": "#646472"
 			}
 ];
@@ -625,7 +625,7 @@ var ProvinceData2010 = [
             {
 				"label": "newfoundland",
 				"value": "842 Immigrated",
-                                "name": "Newfoundland",
+                                "name": "newfoundland and labrador",
 
 				"color": "#646472"
 			}
