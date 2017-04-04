@@ -191,7 +191,7 @@ audio{
 	display:inline-block;
 }
 
-#xButton{
+div[name=xButton]{
 	width: 5%;
 	display:inline-block;
 	top:0;
@@ -200,7 +200,20 @@ audio{
 	position:absolute;
 }
 
-#xButton img{
+div[name=xButton] img{
+	width: 100%;
+}
+
+div[name=xButtonBot]{
+	width: 5%;
+	display:inline-block;
+	bottom:0;
+	right:0;
+	padding:2%;
+	position:relative;
+}
+
+div[name=xButtonBot] img{
 	width: 100%;
 }
 
