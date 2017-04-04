@@ -1,3 +1,5 @@
+var nodeNumb = 1;
+
 $( document ).ready(function() {
     console.log( "ready!" );
 
@@ -10,7 +12,7 @@ var splashScreenClick = document.getElementById("splashScreen").addEventListener
 
 document.getElementById("instructions").className = 'instrShow';	
 	
-var nodeNumb = 1;
+
 //var splashScreenClick = document.getElementById("splashScreen").addEventListener("click", function(){document.getElementById("splashScreen").classList.add('closed');});
 function resize(){
 	if(status == 0){
